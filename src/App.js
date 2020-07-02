@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Router from './main/routes'
+import VisitorLayout from './main/layout/visitor/VisitorLayout'
+import LoggedLayout from './main/layout/logged/loggedLayout'
+
+const logged = false;
+const Layout = logged ? LoggedLayout : VisitorLayout
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <Layout>
+    <Router />
+  </Layout>
 }
 
 export default App;
