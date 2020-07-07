@@ -13,7 +13,7 @@ export default function Nav() {
     flexDirection: 'column'
   }
   const headerWeb = {
-    padding: '0 5rem',
+    padding: "0 10rem",
     display: 'flex',
     justifyContent: 'space-between'
   }
@@ -34,6 +34,7 @@ export default function Nav() {
     menu: {
       display: 'flex',
       alignItems: 'center',
+      backgroundColor: "rgba(0,0,0,0)"
     }
   })
 
@@ -41,7 +42,7 @@ export default function Nav() {
     if (broken) {
       setStyle({
         ...style,
-        sider: { width: 35, heigth: '100vh', position: 'fixed' },
+        sider: { width: 35, heigth: '100vh', position: 'fixed', backgroundColor: "#fff" },
         siderMode: { mode: 'vertical' },
         header: headerMobile,
         menu: {
@@ -54,7 +55,7 @@ export default function Nav() {
     } else {
       setStyle({
         ...style,
-        sider: { width: 100, heigth: 'auto' },
+        sider: { width: 100, heigth: 'auto', zIndex: 99, backgroundColor: "rgba(0,0,0,0)" },
         siderMode: { mode: 'horizontal' },
         header: headerWeb,
         menu: {
@@ -78,7 +79,7 @@ export default function Nav() {
     <div style={style.header}>
       <img style={style.logo} src={Logo} alt="Logo CAC" />
       <Menu mode={style.siderMode.mode} style={style.menu}>
-        <Item>
+        <Item style={{ backgroundColor: "rgba(0,0,0,0)" }}>
           Home
       </Item>
         <Item>
