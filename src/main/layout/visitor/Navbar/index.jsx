@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import Logo from '@assets/images/Logo/justLogo.png'
+import { Link } from 'react-router-dom';
 
 
 const { Sider } = Layout
@@ -11,6 +12,7 @@ export default function Nav() {
     display: 'flex',
     justifyContent: 'space-around',
     flexDirection: 'column'
+
   }
   const headerWeb = {
     padding: "0 10rem",
@@ -42,7 +44,7 @@ export default function Nav() {
     if (broken) {
       setStyle({
         ...style,
-        sider: { width: 35, heigth: '100vh', position: 'fixed', backgroundColor: "#fff" },
+        sider: { width: 35, heigth: '100vh', position: 'fixed', backgroundColor: "#fff", zIndex: 99 },
         siderMode: { mode: 'vertical' },
         header: headerMobile,
         menu: {
@@ -79,15 +81,26 @@ export default function Nav() {
     <div style={style.header}>
       <img style={style.logo} src={Logo} alt="Logo CAC" />
       <Menu mode={style.siderMode.mode} style={style.menu}>
-        <Item style={{ backgroundColor: "rgba(0,0,0,0)" }}>
-          Home
-      </Item>
+        <Item >
+          <Link to="/">
+            Home
+          </Link>
+        </Item>
+
         <Item>
-          Sobre
-      </Item>
+          <Link to="/about">
+            Sobre
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/products">
+            Produtos
+          </Link>
+        </Item>
+
         <Item>
           Login
-      </Item>
+        </Item>
       </Menu>
     </div>
   </Sider>)

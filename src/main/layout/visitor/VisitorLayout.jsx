@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from './Navbar'
 import { Layout } from 'antd'
 import defaultConst from '@/main/defaultConstsCSS.js'
+import Particles from 'react-particles-js'
 
 
 import './visitor.css'
@@ -16,22 +17,87 @@ export default function VisitorLayout(props) {
       maxWidth: '100vw',
       padding: defaultConst.container,
       zIndex: '1',
+      position: 'absolute',
+      justifyContent: 'center'
     },
     background: {
       width: '100%',
-      height: '100%',
+      height: 'max-content',
       zIndex: '0',
-      position: 'absolute',
+      minHeight: '100%',
+      position: 'fixed',
       top: 0,
-      left: 0
+      left: 0,
     }
   }
+
   return <div>
-    <div className="background" style={style.background}>
-      <NavBar />
-      <Content style={style.container}>
-        {props.children}
-      </Content>
-    </div>
+    <NavBar />
+    <Content style={style.container}>
+      {props.children}
+    </Content>
+
+    <Particles style={style.background} params={{
+      background: {
+        color: {
+          value: "#e8e8e8"
+        }
+      }, particles: {
+        color: {
+          value: "#a39f9f"
+        },
+        links: {
+          color: "#a39f9f",
+          distance: 150,
+          enable: true,
+          opacity: 0.5,
+          width: 1
+        },
+        collisions: {
+          enable: true
+        },
+        move: {
+          direction: "none",
+          enable: true,
+          outMode: "bounce",
+          random: false,
+          speed: 2,
+          straight: false
+        },
+        number: {
+          density: {
+            enable: true,
+            value_area: 1000
+          },
+          value: 80
+        },
+        opacity: {
+          value: 0.5
+        },
+        shape: {
+          type: "circle"
+        },
+        size: {
+          random: true,
+          value: 5
+        }
+      },
+
+    }} />
+
   </div>
+
+
 }
+
+
+// background: {
+//   width: '100%',
+//   height: 'max-content',
+//   zIndex: '0',
+//   minHeight: '100%',
+//   position: 'absolute',
+//   top: 0,
+//   left: 0,
+//   backgroundColor: 'blue'
+// }
