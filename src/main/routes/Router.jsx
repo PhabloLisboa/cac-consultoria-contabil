@@ -8,14 +8,17 @@ import {
 
 import VisitorLayout from '../layout/visitor/VisitorLayout'
 import LoggedLayout from '../layout/logged/loggedLayout'
+import { useSelector } from 'react-redux';
+import { login } from '../store/actions';
 
-const logged = false;
-const Layout = logged ? LoggedLayout : VisitorLayout
+
 
 
 
 export default function RouterMounted() {
-  console.log(routes);
+  const logged = useSelector(({ Login }) => Login.logged)
+  const Layout = logged ? LoggedLayout : VisitorLayout
+
   return <Router>
     <Switch>
       <Layout>

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Button } from 'antd';
 import Logo from '@assets/images/Logo/justLogo.png'
 import { Link } from 'react-router-dom';
+import LoginModal from '../Login'
 
 
 const { Sider } = Layout
 const { Item } = Menu
 
 export default function Nav() {
+  const [showLogin, setShowLogin] = useState(false)
   const headerMobile = {
     display: 'flex',
     justifyContent: 'space-around',
@@ -39,6 +41,7 @@ export default function Nav() {
       backgroundColor: "rgba(0,0,0,0)"
     }
   })
+
 
   const onBroken = (broken) => {
     if (broken) {
@@ -78,8 +81,16 @@ export default function Nav() {
     width={`${style.sider.width}%`}
     onBreakpoint={onBroken}
   >
+    <LoginModal visible={showLogin}
+      onCancel={() => setShowLogin(false)}
+      title="Login"
+      cancelText="Cancelar"
+      okText="Entrar"
+      centered={true}
+      footer={null}
+    />
     <div style={style.header}>
-      <img style={style.logo} src={Logo} alt="Logo CAC" />
+      <Link to="/"><img style={style.logo} src={Logo} alt="Logo CAC" /></Link>
       <Menu mode={style.siderMode.mode} style={style.menu}>
         <Item >
           <Link to="/">
@@ -99,7 +110,8 @@ export default function Nav() {
         </Item>
 
         <Item>
-          Login
+          <Button type="primary" onClick={() => setShowLogin(true)}>Login</Button>
+
         </Item>
       </Menu>
     </div>
