@@ -1,7 +1,7 @@
 import * as LoginActions from '../../actions'
 
 const Login = (state = {
-  logged: false
+  logged: localStorage.getItem('logged')
 }, action) => {
   switch (action.type) {
     case LoginActions.LOGIN:

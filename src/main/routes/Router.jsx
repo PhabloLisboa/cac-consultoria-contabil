@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import routes from './routerConfigs'
 import {
   BrowserRouter as Router,
@@ -9,14 +9,13 @@ import {
 import VisitorLayout from '../layout/visitor/VisitorLayout'
 import LoggedLayout from '../layout/logged/loggedLayout'
 import { useSelector } from 'react-redux';
-import { login } from '../store/actions';
-
-
-
-
 
 export default function RouterMounted() {
-  const logged = useSelector(({ Login }) => Login.logged)
+  const loggedState = useSelector(({ Login }) => Login.logged)
+  const [logged, setLogged] = useState(false)
+
+  useEffect(() => setLogged(localStorage.getItem('logged') ? true : false), [loggedState])
+
   const Layout = logged ? LoggedLayout : VisitorLayout
 
   return <Router>

@@ -1,7 +1,7 @@
 import Dash from './dash/Dash'
 
 export default [{
-    path: '/logged',
+    path: '/dashboard',
     component: Dash
   },
 

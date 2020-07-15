@@ -3,5 +3,5 @@ import modulesRoutes from '../modules/modulesRoutes'
 
 export default [
   ...pagesRoutes,
-  // ...modulesRoutes
+  ...modulesRoutes
 ]

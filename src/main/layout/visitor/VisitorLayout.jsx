@@ -89,15 +89,3 @@ export default function VisitorLayout(props) {
 
 
 }
-
-
-// background: {
-//   width: '100%',
-//   height: 'max-content',
-//   zIndex: '0',
-//   minHeight: '100%',
-//   position: 'absolute',
-//   top: 0,
-//   left: 0,
-//   backgroundColor: 'blue'
-// }

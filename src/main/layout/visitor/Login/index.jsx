@@ -3,7 +3,7 @@ import Modal from 'antd/lib/modal/Modal'
 import { Form, Input, Button, Checkbox } from 'antd';
 import { useDispatch } from 'react-redux';
 import * as loginAction from '../../../store/actions'
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const layout = {
   labelCol: { span: 8 },
@@ -15,8 +15,10 @@ const tailLayout = {
 
 export default function LoginModal(props) {
   const dispatch = useDispatch()
+  let history = useHistory();
   const onFinish = values => {
     dispatch(loginAction.login())
+    history.push('/dashboard')
   };
 
   const onFinishFailed = errorInfo => {
