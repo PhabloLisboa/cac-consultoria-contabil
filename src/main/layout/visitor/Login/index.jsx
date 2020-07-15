@@ -16,7 +16,7 @@ const tailLayout = {
 export default function LoginModal(props) {
   const dispatch = useDispatch()
   let history = useHistory();
-  const onFinish = values => {
+  const onFinish = () => {
     dispatch(loginAction.login())
     history.push('/dashboard')
   };
